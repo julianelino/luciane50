@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Álbum de fotos da festa de 50 anos de Luciane — acesse e compartilhe seus momentos no Google Fotos." />
+  <meta name="theme-color" content="#FFF8FB" />
+
+  <title>Álbum da Festa — Luciane • 50 Anos</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* Decoração de fundo extra para página fotos */
+    .fotos-bg-deco {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .fotos-bg-deco::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -15%;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+    }
+    .fotos-bg-deco::after {
+      content: '';
+      position: absolute;
+      bottom: 5%;
+      left: -15%;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(232, 175, 207, 0.08) 0%, transparent 70%);
+    }
+
+    /* Ícone Google Fotos (colorido) */
+    .google-photos-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #4285F4 0deg 90deg,
+        #FBBC04 90deg 180deg,
+        #34A853 180deg 270deg,
+        #EA4335 270deg 360deg
+      );
+      flex-shrink: 0;
+    }
+
+    .fotos-steps {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      border-top: 1px solid var(--glass-border);
+      padding-top: var(--space-5);
+    }
+
+    .fotos-step {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+
+    .fotos-step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .fotos-step-text {
+      font-size: var(--text-xs);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    .fotos-step-text strong {
+      color: var(--color-text-primary);
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Decoração de fundo -->
+  <div class="fotos-bg-deco" aria-hidden="true"></div>
+
+  <!-- ================================================
+       NAVBAR
+       ================================================ -->
+  <header role="banner">
+    <nav class="navbar" aria-label="Navegação principal">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand" aria-label="Luciane 50 anos — Início">
+          <span>Luciane</span>
+          <span class="navbar-brand-accent" aria-hidden="true">•</span>
+        </a>
+        <ul class="navbar-nav" role="list">
+          <li>
+            <a href="index.html" class="navbar-link" data-page="index" aria-label="Início">
+              <img src="assets/icons/home.svg" class="navbar-link-icon" alt="" aria-hidden="true" width="20" height="20" />
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="recado.html" class="navbar-link" data-page="recado" aria-label="Deixar recado">
+              <img src="assets/icons/message.svg" class="navbar-link-icon" alt="" aria-hidden="true" width="20" height="20" />
+              <span>Recados</span>
+            </a>
+          </li>
+          <li>
+            <a href="mural.html" class="navbar-link" data-page="mural" aria-label="Ver mural">
+              <img src="assets/icons/heart.svg" class="navbar-link-icon" alt="" aria-hidden="true" width="20" height="20" />
+              <span>Mural</span>
+            </a>
+          </li>
+          <li>
+            <a href="fotos.html" class="navbar-link" data-page="fotos" aria-label="Álbum de fotos">
+              <img src="assets/icons/gallery.svg" class="navbar-link-icon" alt="" aria-hidden="true" width="20" height="20" />
+              <span>Fotos</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================================================
+       MAIN CONTENT
+       ================================================ -->
+  <main id="main-content" class="page-wrapper" role="main">
+    <div class="content-container">
+      <div class="fotos-page">
+
+        <!-- Header -->
+        <header class="fotos-header">
+          <div class="gold-divider" aria-hidden="true"></div>
+          <h1 class="fotos-header-title">Álbum da Festa</h1>
+          <p class="fotos-header-subtitle">
+            Compartilhe momentos especiais<br />dessa celebração.
+          </p>
+        </header>
+
+        <!-- Card principal -->
+        <div class="fotos-card section-reveal" aria-label="Acesso ao álbum da festa no Google Fotos">
+
+          <!-- Texto introdutório -->
+          <p class="fotos-intro-text">
+            Acesse todas as fotos da festa no nosso álbum exclusivo do Google Fotos. Você pode adicionar suas próprias fotos e reviver cada momento.
+          </p>
+
+          <!-- QR Code -->
+          <figure class="fotos-qr-wrapper" aria-label="QR Code para acessar o álbum">
+            <div class="fotos-qr-frame">
+              <img
+                src="assets/images/qr-google-fotos.png"
+                alt="QR Code do álbum da festa no Google Fotos"
+                class="fotos-qr-image"
+                loading="lazy"
+                width="160"
+                height="160"
+                onerror="this.style.display='none'; document.getElementById('qr-fallback').style.display='flex';"
+              />
+              <!-- Fallback quando a imagem não existe -->
+              <div
+                id="qr-fallback"
+                style="display:none; width:100%; height:100%; align-items:center; justify-content:center; color: var(--color-gold-dark); font-size: var(--text-xs); text-align:center; padding: var(--space-3);"
+                aria-hidden="true"
+              >
+                <div>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32" style="margin: 0 auto var(--space-2);">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <rect x="14" y="14" width="3" height="3" rx="0.5"/>
+                    <rect x="18" y="14" width="3" height="3" rx="0.5"/>
+                    <rect x="14" y="18" width="3" height="3" rx="0.5"/>
+                    <rect x="18" y="18" width="3" height="3" rx="0.5"/>
+                  </svg>
+                  <span style="font-size:10px; opacity:0.7;">QR Code<br/>do álbum</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cantos decorativos -->
+            <span class="fotos-qr-corner fotos-qr-corner--tl" aria-hidden="true"></span>
+            <span class="fotos-qr-corner fotos-qr-corner--tr" aria-hidden="true"></span>
+            <span class="fotos-qr-corner fotos-qr-corner--bl" aria-hidden="true"></span>
+            <span class="fotos-qr-corner fotos-qr-corner--br" aria-hidden="true"></span>
+
+            <figcaption class="fotos-qr-caption" aria-hidden="true">
+              Escaneie para acessar o álbum
+            </figcaption>
+          </figure>
+
+          <!-- Botão abrir álbum -->
+          <button
+            id="btn-open-album"
+            class="fotos-btn-album"
+            aria-label="Abrir o álbum da festa no Google Fotos em uma nova aba"
+            type="button"
+          >
+            <span class="google-photos-icon" aria-hidden="true"></span>
+            Ver Álbum no Google Fotos
+            <svg
+              class="fotos-btn-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </button>
+
+          <!-- Como usar — passos -->
+          <div class="fotos-steps" aria-label="Como usar o álbum compartilhado">
+            <div class="fotos-step">
+              <div class="fotos-step-number" aria-hidden="true">1</div>
+              <p class="fotos-step-text">
+                <strong>Escaneie o QR Code</strong> com a câmera do celular ou clique no botão acima.
+              </p>
+            </div>
+            <div class="fotos-step">
+              <div class="fotos-step-number" aria-hidden="true">2</div>
+              <p class="fotos-step-text">
+                <strong>Acesse o álbum compartilhado</strong> e veja todos os momentos da festa.
+              </p>
+            </div>
+            <div class="fotos-step">
+              <div class="fotos-step-number" aria-hidden="true">3</div>
+              <p class="fotos-step-text">
+                <strong>Adicione suas fotos</strong> O botão “Adicionar fotos” fica no centro inferior da tela.
+                  Toque no ícone de imagem com sinal de “+” para acessar a galeria e adicionar novas fotos. — Guarde suas memórias para sempre!
+              </p>
+            </div>
+          </div>
+
+          <p class="fotos-hint">Suas fotos ficarão visíveis para todos os convidados.</p>
+
+        </div>
+        <!-- /fotos-card -->
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+  <script src="js/pages/fotos.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Celebração especial de Luciane • 50 anos. Deixe seu recado, veja o mural e acesse o álbum da festa." />
+  <meta name="theme-color" content="#FFF8FB" />
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Luciane • 50 Anos" />
+  <meta property="og:description" content="Uma celebração especial. Deixe seu recado para Luciane." />
+  <meta property="og:type"        content="website" />
+
+  <title>Luciane • 50 Anos</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com" ></script>
+
+  <!-- Google Fonts — preconnect para performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- ================================================
+       NAVBAR
+       ================================================ -->
+  <header role="banner">
+    <nav class="navbar" aria-label="Navegação principal">
+      <div class="navbar-inner">
+
+        <!-- Marca -->
+        <a href="index.html" class="navbar-brand" aria-label="Luciane 50 anos — Início">
+          <span>Luciane</span>
+          <span class="navbar-brand-accent" aria-hidden="true">•</span>
+        </a>
+
+        <!-- Links -->
+        <ul class="navbar-nav" role="list">
+          <li>
+            <a href="index.html"
+               class="navbar-link"
+               data-page="index"
+               aria-label="Início">
+              <img src="assets/icons/home.svg"
+                   class="navbar-link-icon"
+                   alt=""
+                   aria-hidden="true"
+                   width="20" height="20" />
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="recado.html"
+               class="navbar-link"
+               data-page="recado"
+               aria-label="Deixar recado">
+              <img src="assets/icons/message.svg"
+                   class="navbar-link-icon"
+                   alt=""
+                   aria-hidden="true"
+                   width="20" height="20" />
+              <span>Recados</span>
+            </a>
+          </li>
+          <li>
+            <a href="mural.html"
+               class="navbar-link"
+               data-page="mural"
+               aria-label="Ver mural">
+              <img src="assets/icons/heart.svg"
+                   class="navbar-link-icon"
+                   alt=""
+                   aria-hidden="true"
+                   width="20" height="20" />
+              <span>Mural</span>
+            </a>
+          </li>
+          <li>
+            <a href="fotos.html"
+               class="navbar-link"
+               data-page="fotos"
+               aria-label="Álbum de fotos">
+              <img src="assets/icons/gallery.svg"
+                   class="navbar-link-icon"
+                   alt=""
+                   aria-hidden="true"
+                   width="20" height="20" />
+              <span>Fotos</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================================================
+       MAIN CONTENT
+       ================================================ -->
+  <main id="main-content" class="page-wrapper" role="main">
+    <div class="content-container">
+
+      <!-- ---- HERO SECTION ------------------------------------ -->
+      <section class="hero-section" aria-labelledby="hero-title">
+
+        <!-- Foto circular -->
+        <div class="hero-photo-container" aria-hidden="true">
+          <div class="hero-photo-wrapper">
+            <!-- Substitua luciane.jpg pela foto real -->
+            <img
+              src="assets/images/luciane.jpg"
+              alt="Foto de Luciane"
+              loading="eager"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="hero-photo-placeholder" style="display:none;" aria-hidden="true">L</div>
+          </div>
+        </div>
+
+        <!-- Título -->
+        <h1 id="hero-title" class="hero-title animate-fade-in-up delay-200">
+          Luciane<span class="hero-title-accent"> • 50 anos</span>
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="hero-subtitle animate-fade-in-up delay-300">
+          Uma trajetória de luz, amor e conquistas<br />celebrada em cada detalhe.
+        </p>
+
+        <!-- Divider dourado -->
+        <div class="gold-divider animate-fade-in delay-400" aria-hidden="true"></div>
+
+        <!-- ---- COUNTDOWN ------------------------------------ -->
+        <div class="countdown-section" aria-label="Contagem regressiva para o evento">
+          <p class="countdown-title">Faltam para o fim da celebração</p>
+
+          <!-- Grid do countdown -->
+          <div class="countdown-grid" id="countdown-wrapper" role="timer" aria-live="off">
+
+            <div class="countdown-unit">
+              <div class="countdown-value" id="countdown-days" aria-label="dias">00</div>
+              <span class="countdown-label">dias</span>
+            </div>
+
+            <span class="countdown-separator" aria-hidden="true">:</span>
+
+            <div class="countdown-unit">
+              <div class="countdown-value" id="countdown-hours" aria-label="horas">00</div>
+              <span class="countdown-label">horas</span>
+            </div>
+
+            <span class="countdown-separator" aria-hidden="true">:</span>
+
+            <div class="countdown-unit">
+              <div class="countdown-value" id="countdown-minutes" aria-label="minutos">00</div>
+              <span class="countdown-label">min</span>
+            </div>
+
+            <span class="countdown-separator" aria-hidden="true">:</span>
+
+            <div class="countdown-unit">
+              <div class="countdown-value" id="countdown-seconds" aria-label="segundos">00</div>
+              <span class="countdown-label">seg</span>
+            </div>
+
+          </div>
+
+          <!-- Mensagem pós-evento (oculta por padrão) -->
+          <p class="countdown-celebration" id="countdown-celebration" style="display:none;" role="status">
+            Que a festa seja inesquecível! 🥂
+          </p>
+        </div>
+
+        <!-- ---- NAV CARDS ------------------------------------ -->
+        <nav class="nav-cards-section" aria-label="Ações rápidas">
+          <div class="nav-cards-grid">
+
+            <!-- Card destaque: Deixar recado -->
+            <a href="recado.html"
+               class="nav-card nav-card--featured"
+               aria-label="Deixar um recado especial para Luciane">
+              <div class="nav-card-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </div>
+              <div class="nav-card-body">
+                <div class="nav-card-title">Deixar Recado</div>
+                <div class="nav-card-description">Envie uma mensagem especial para a Luciane Lino</div>
+              </div>
+              <svg class="nav-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+
+            <!-- Card: Ver mural -->
+            <a href="mural.html"
+               class="nav-card"
+               aria-label="Ver o mural de recados">
+              <div class="nav-card-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </div>
+              <div class="nav-card-body">
+                <div class="nav-card-title">Ver Mural</div>
+                <div class="nav-card-description">Mensagens de carinho compartilhadas para a aniversariante</div>
+              </div>
+              <svg class="nav-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+
+            <!-- Card: Álbum -->
+            <a href="fotos.html"
+               class="nav-card"
+               aria-label="Acessar o álbum da festa">
+              <div class="nav-card-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                  <rect x="3" y="3" width="18" height="18" rx="2.5" ry="2.5"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+              </div>
+              <div class="nav-card-body">
+                <div class="nav-card-title">Álbum da Festa</div>
+                <div class="nav-card-description">Compartilhe momentos especiais da festa com a aniversariante</div>
+              </div>
+              <svg class="nav-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+
+          </div>
+        </nav>
+        <!-- /nav-cards -->
+
+      </section>
+      <!-- /hero-section -->
+
+    </div>
+    <!-- /content-container -->
+  </main>
+
+  <!-- ================================================
+       SUPABASE SDK (CDN)
+       ================================================ -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+  <!-- Scripts do projeto -->
+  <script src="js/services/supabase.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/countdown.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mural de recados do aniversário de 50 anos de Luciane — mensagens de carinho dos convidados." />
+  <meta name="theme-color" content="#FFF8FB" />
+
+  <title>Mural de Recados — Luciane • 50 Anos</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* Estilos específicos do mural não reutilizados em outras páginas */
+    .mural-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-2);
+    }
+
+    .mural-count-badge {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      border-radius: var(--radius-full);
+      padding: var(--space-1) var(--space-3);
+    }
+
+    .mural-add-btn {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--color-gold-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      text-decoration: none;
+      transition: background var(--transition-base), border-color var(--transition-base);
+    }
+
+    .mural-add-btn:hover {
+      background: rgba(212, 175, 55, 0.08);
+      border-color: rgba(212, 175, 55, 0.5);
+    }
+
+    /* Estados */
+    .mural-loading { display: flex; flex-direction: column; gap: var(--space-4); }
+    .mural-feed    { display: none; flex-direction: column; gap: var(--space-4); }
+    .mural-empty,
+    .mural-error   { display: none; }
+
+    /* Error state */
+    .error-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto var(--space-4);
+      color: var(--color-text-muted);
+      opacity: 0.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================================================
+       NAVBAR
+       ================================================ -->
+  <header role="banner">
+    <nav class="navbar" aria-label="Navegação principal">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand" aria-label="Luciane 50 anos — Início">
+          <span>Luciane</span>
+          <span class="navbar-brand-accent" aria-hidden="true">•</span>
+        </a>
+        <ul class="navbar-nav" role="list">
+          <li>
+            <a href="index.html" class="navbar-link" data-page="index" aria-label="Início">
+              <img src="assets/icons/home.svg" class="navbar-link-icon" alt="" aria-hidden="true" width="20" height="20" />
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="recado.html" class="navbar-link" data-page="recado" aria-label="Deixar recado">
+              <img src="assets/icons/message.svg" class="navbar-link-icon" alt="" aria-hidden="true" width="20" height="20" />
+              <span>Recados</span>
+            </a>
+          </li>
+          <li>
+            <a href="mural.html" class="navbar-link" data-page="mural" aria-label="Ver mural">
+              <img src="assets/icons/heart.svg" class="navbar-link-icon" alt="" aria-hidden="true" width="20" height="20" />
+              <span>Mural</span>
+            </a>
+          </li>
+          <li>
+            <a href="fotos.html" class="navbar-link" data-page="fotos" aria-label="Álbum de fotos">
+              <img src="assets/icons/gallery.svg" class="navbar-link-icon" alt="" aria-hidden="true" width="20" height="20" />
+              <span>Fotos</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================================================
+       MAIN CONTENT
+       ================================================ -->
+  <main id="main-content" class="page-wrapper" role="main">
+    <div class="content-container">
+      <div class="mural-page">
+
+        <!-- Header -->
+        <header class="mural-header">
+          <div class="gold-divider" aria-hidden="true"></div>
+          <h1 class="mural-header-title">Mural de Recados</h1>
+          <p class="mural-header-subtitle">
+            Mensagens de carinho dos convidados
+          </p>
+        </header>
+
+        <!-- Barra superior: contagem + botão enviar -->
+        <div class="mural-topbar section-reveal">
+          <span class="mural-count-badge" id="mural-count" aria-live="polite" aria-atomic="true">
+            Carregando…
+          </span>
+          <a href="recado.html" class="mural-add-btn" aria-label="Enviar um novo recado">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Enviar recado
+          </a>
+        </div>
+
+        <!-- ---- LOADING (skeletons) -------------------------------- -->
+        <div class="mural-loading section-reveal" id="mural-loading" aria-label="Carregando mensagens" aria-busy="true">
+          <div class="skeleton-card" aria-hidden="true">
+            <div class="skeleton-line skeleton-line--short"></div>
+            <div class="skeleton-line skeleton-line--long"></div>
+            <div class="skeleton-line skeleton-line--medium"></div>
+          </div>
+          <div class="skeleton-card" aria-hidden="true">
+            <div class="skeleton-line skeleton-line--short"></div>
+            <div class="skeleton-line skeleton-line--long"></div>
+            <div class="skeleton-line skeleton-line--medium"></div>
+          </div>
+          <div class="skeleton-card" aria-hidden="true">
+            <div class="skeleton-line skeleton-line--short"></div>
+            <div class="skeleton-line skeleton-line--long"></div>
+          </div>
+        </div>
+
+        <!-- ---- FEED DE MENSAGENS ---------------------------------- -->
+        <section
+          class="mural-feed"
+          id="mural-feed"
+          aria-label="Recados dos convidados"
+          aria-live="polite"
+        ></section>
+
+        <!-- ---- ESTADO VAZIO --------------------------------------- -->
+        <div class="mural-empty state-card" id="mural-empty" role="status">
+          <div class="state-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <p class="state-card-title">Nenhum recado ainda</p>
+          <p class="state-card-description">Seja o primeiro a deixar uma mensagem especial!</p>
+          <a href="recado.html"
+             class="btn-primary"
+             style="margin-top: var(--space-5); font-size: var(--text-sm);"
+             aria-label="Enviar o primeiro recado">
+            Enviar recado
+          </a>
+        </div>
+
+        <!-- ---- ESTADO DE ERRO ------------------------------------- -->
+        <div class="mural-error state-card" id="mural-error" role="alert">
+          <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <p class="state-card-title">Erro ao carregar mensagens</p>
+          <p class="state-card-description">Verifique sua conexão e tente novamente.</p>
+          <button
+            id="btn-retry"
+            class="btn-outline"
+            style="margin-top: var(--space-5);"
+            aria-label="Tentar carregar as mensagens novamente"
+          >
+            Tentar novamente
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+  <!-- Scripts -->
+  <script src="js/services/supabase.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/pages/mural.js"></script>
+
+</body>
+</html>

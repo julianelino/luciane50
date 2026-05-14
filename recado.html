@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Deixe um recado especial para Luciane no seu aniversário de 50 anos." />
+  <meta name="theme-color" content="#FFF8FB" />
+
+  <title>Deixar Recado — Luciane • 50 Anos</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- CSS do projeto -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- ================================================
+       NAVBAR
+       ================================================ -->
+  <header role="banner">
+    <nav class="navbar" aria-label="Navegação principal">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand" aria-label="Luciane 50 anos — Início">
+          <span>Luciane</span>
+          <span class="navbar-brand-accent" aria-hidden="true">•</span>
+        </a>
+        <ul class="navbar-nav" role="list">
+          <li>
+            <a href="index.html" class="navbar-link" data-page="index" aria-label="Início">
+              <img src="assets/icons/home.svg" class="navbar-link-icon" alt="" aria-hidden="true" width="20" height="20" />
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="recado.html" class="navbar-link" data-page="recado" aria-label="Deixar recado">
+              <img src="assets/icons/message.svg" class="navbar-link-icon" alt="" aria-hidden="true" width="20" height="20" />
+              <span>Recados</span>
+            </a>
+          </li>
+          <li>
+            <a href="mural.html" class="navbar-link" data-page="mural" aria-label="Ver mural">
+              <img src="assets/icons/heart.svg" class="navbar-link-icon" alt="" aria-hidden="true" width="20" height="20" />
+              <span>Mural</span>
+            </a>
+          </li>
+          <li>
+            <a href="fotos.html" class="navbar-link" data-page="fotos" aria-label="Álbum de fotos">
+              <img src="assets/icons/gallery.svg" class="navbar-link-icon" alt="" aria-hidden="true" width="20" height="20" />
+              <span>Fotos</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================================================
+       MAIN CONTENT
+       ================================================ -->
+  <main id="main-content" class="page-wrapper" role="main">
+    <div class="content-container">
+      <div class="recado-page">
+
+        <!-- Header da página -->
+        <header class="recado-header">
+          <div class="gold-divider" aria-hidden="true"></div>
+          <h1 class="recado-header-title">Deixar Recado</h1>
+          <p class="recado-header-subtitle">
+            Escreva uma mensagem especial e com muito carinho para Luciane
+          </p>
+        </header>
+
+        <!-- ---- FORMULÁRIO ---------------------------------------- -->
+        <div class="recado-form-card section-reveal" id="recado-form-card">
+
+          <form
+            id="recado-form"
+            novalidate
+            aria-label="Formulário para enviar recado"
+          >
+
+            <!-- Campo: Nome -->
+            <div class="form-group">
+              <label class="form-label" for="input-name">
+                Seu Nome <span aria-hidden="true" style="color:#DC6060">*</span>
+              </label>
+              <input
+                type="text"
+                id="input-name"
+                name="name"
+                class="form-input"
+                placeholder="Como você se chama?"
+                required
+                maxlength="100"
+                autocomplete="name"
+                aria-describedby="error-name"
+                aria-required="true"
+              />
+              <span
+                class="form-error"
+                id="error-name"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Campo: Mensagem -->
+            <div class="form-group">
+              <label class="form-label" for="input-message">
+                Sua Mensagem <span aria-hidden="true" style="color:#DC6060">*</span>
+              </label>
+              <textarea
+                id="input-message"
+                name="message"
+                class="form-textarea"
+                placeholder="Escreva algo especial do fundo do coração…"
+                required
+                minlength="20"
+                maxlength="300"
+                aria-describedby="error-msg char-counter"
+                aria-required="true"
+              ></textarea>
+              <div class="form-counter" id="char-counter" aria-live="polite" aria-atomic="true">
+                0 / 300
+              </div>
+              <span
+                class="form-error"
+                id="error-msg"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Botão submit -->
+            <button
+              type="submit"
+              class="btn-submit"
+              id="btn-submit"
+              aria-label="Enviar recado"
+            >
+              <span id="btn-submit-text">Enviar Mensagem</span>
+
+              <!-- Spinner (oculto por padrão) -->
+              <span
+                id="btn-submit-spinner"
+                class="spinner"
+                style="display:none;"
+                aria-hidden="true"
+              ></span>
+
+              <!-- Ícone seta -->
+              <svg
+                id="btn-submit-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="18"
+                height="18"
+                aria-hidden="true"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+
+          </form>
+        </div>
+        <!-- /recado-form-card -->
+
+        <!-- ---- CARD DE SUCESSO (oculto por padrão) --------------- -->
+        <div
+          class="recado-form-card recado-success-card"
+          id="recado-success"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <!-- Ícone de confirmação -->
+          <div class="success-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+
+          <h2 class="success-title">Recado Enviado com Sucesso!</h2>
+          <p class="success-subtitle">Obrigado por compartilhar seu carinho comigo!</p>
+
+          <div style="display:flex; gap:var(--space-3); flex-direction:column; width:100%; max-width:280px;">
+            <a href="mural.html" class="btn-primary" aria-label="Ver o mural de recados">
+              Ver Mural de Recados
+            </a>
+            <button
+              id="btn-back"
+              class="btn-outline"
+              aria-label="Enviar outro recado"
+            >
+              Enviar outro recado
+            </button>
+          </div>
+        </div>
+        <!-- /recado-success -->
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+  <!-- Scripts -->
+  <script src="js/services/supabase.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/pages/recado.js"></script>
+
+</body>
+</html>

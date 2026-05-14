@@ -1,0 +1,247 @@
+/* ============================================================
+   responsive.css — Breakpoints e Ajustes Responsivos
+   Luciane • 50 anos — Mobile First
+   ============================================================ */
+
+/* ================================================
+   BASE: Mobile (até 768px) — já definido no core
+   ================================================ */
+
+/* ================================================
+   TABLET: 768px–1024px
+   ================================================ */
+@media (min-width: 768px) {
+  :root {
+    --page-padding: var(--space-6);
+    --navbar-height: 70px;
+  }
+
+  /* Navbar */
+  .navbar-link {
+    padding: var(--space-2) var(--space-4);
+    font-size: 11px;
+    min-width: 60px;
+  }
+
+  .navbar-link-icon,
+  .navbar-link svg,
+  .navbar-link img {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Hero */
+  .hero-photo-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-title {
+    font-size: var(--text-5xl);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-lg);
+    max-width: 360px;
+  }
+
+  /* Countdown */
+  .countdown-value {
+    width: 72px;
+    height: 72px;
+    font-size: var(--text-3xl);
+  }
+
+  .countdown-label {
+    font-size: 10px;
+  }
+
+  /* Cards de nav */
+  .nav-cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+
+  /* Formulário */
+  .recado-form-card {
+    padding: var(--space-10) var(--space-8);
+  }
+
+  /* Mural */
+  .mural-card {
+    padding: var(--space-6);
+  }
+
+  /* Fotos */
+  .fotos-qr-frame {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* ================================================
+   DESKTOP: acima de 1024px
+   ================================================ */
+@media (min-width: 1024px) {
+  :root {
+    --page-padding: var(--space-8);
+    --navbar-height: 72px;
+    --content-max-width: 560px;
+  }
+
+  /* Body com mais respiro */
+  body {
+    background-image:
+      radial-gradient(ellipse 60% 40% at 5% 20%, rgba(232, 175, 207, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 95% 80%, rgba(212, 175, 55, 0.06) 0%, transparent 60%);
+  }
+
+  /* Navbar — ajuste de proporção desktop */
+  .navbar-inner {
+    max-width: var(--content-max-width);
+  }
+
+  .navbar-brand {
+    font-size: var(--text-xl);
+  }
+
+  .navbar-link {
+    padding: var(--space-2) var(--space-5);
+    font-size: 11px;
+  }
+
+  /* Hero — espaçamento extra */
+  .hero-section {
+    padding: var(--space-12) 0 var(--space-10);
+  }
+
+  .hero-photo-wrapper {
+    width: 176px;
+    height: 176px;
+    border-width: 3.5px;
+  }
+
+  .hero-title {
+    font-size: calc(var(--text-5xl) * 1.1);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-lg);
+    max-width: 380px;
+  }
+
+  /* Countdown */
+  .countdown-value {
+    width: 76px;
+    height: 76px;
+    font-size: var(--text-3xl);
+    border-radius: var(--radius-xl);
+  }
+
+  .countdown-grid {
+    gap: var(--space-4);
+  }
+
+  /* Cards */
+  .nav-card {
+    padding: var(--space-6);
+  }
+
+  .nav-card--featured {
+    padding: var(--space-6) var(--space-8);
+  }
+
+  .nav-card-title {
+    font-size: var(--text-lg);
+  }
+
+  .nav-card-description {
+    font-size: var(--text-sm);
+  }
+
+  /* Formulário */
+  .recado-header-title,
+  .mural-header-title,
+  .fotos-header-title {
+    font-size: var(--text-4xl);
+  }
+
+  .recado-form-card {
+    padding: var(--space-10) var(--space-10);
+    border-radius: var(--radius-2xl);
+  }
+
+  .form-input,
+  .form-textarea {
+    font-size: var(--text-base);
+    padding: var(--space-4) var(--space-5);
+  }
+
+  /* Mural */
+  .mural-card {
+    padding: var(--space-6) var(--space-8);
+    border-radius: var(--radius-2xl);
+  }
+
+  .mural-card-avatar {
+    width: 42px;
+    height: 42px;
+    font-size: var(--text-base);
+  }
+
+  .mural-card-message {
+    font-size: var(--text-base);
+  }
+
+  /* Fotos */
+  .fotos-card {
+    padding: var(--space-10) var(--space-8);
+  }
+
+  .fotos-qr-frame {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* ================================================
+   LARGE DESKTOP: acima de 1280px
+   ================================================ */
+@media (min-width: 1280px) {
+  :root {
+    --content-max-width: 580px;
+  }
+
+  .hero-title {
+    font-size: var(--text-5xl);
+  }
+}
+
+/* ================================================
+   UTILITÁRIOS DE ACESSIBILIDADE
+   ================================================ */
+
+/* Alta contrastagem */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: rgba(212, 175, 55, 0.5);
+    --glass-border: rgba(212, 175, 55, 0.4);
+  }
+
+  .form-input,
+  .form-textarea {
+    border-width: 2px;
+  }
+
+  .nav-card {
+    border-width: 2px;
+  }
+}
+
+/* ================================================
+   PRINT
+   ================================================ */
+@media print {
+  .navbar { display: none; }
+  body { padding-top: 0; }
+}

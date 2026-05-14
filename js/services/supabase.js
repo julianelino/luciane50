@@ -14,8 +14,8 @@
  *   3. Settings → API → Project URL e anon public key
  */
 
-const SUPABASE_URL  = 'https://SEU_PROJECT_REF.supabase.co';
-const SUPABASE_ANON = 'SUA_ANON_PUBLIC_KEY';
+const SUPABASE_URL  = 'https://zxuvfpwlxhiunaoxvaot.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_drBlkPkVMR7zCMdf4r-66g_9XOqauNo';
 
 /* ---- Cliente Supabase via CDN --------------------------------------- */
 // O script da CDN do Supabase expõe window.supabase globalmente.

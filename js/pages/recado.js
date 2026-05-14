@@ -70,8 +70,8 @@
     clearError(inputName, errorName);
     clearError(inputMessage, errorMessage);
 
-    const name    = inputName ? inputName.value.trim() : '';
-    const message = inputMessage ? inputMessage.value.trim() : '';
+    const name    = inputName ? inputName.value.trim() : 'name';
+    const message = inputMessage ? inputMessage.value.trim() : 'message';
 
     if (!name) {
       showError(inputName, errorName, 'Por favor, informe seu nome.');
